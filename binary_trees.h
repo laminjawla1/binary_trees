@@ -1,5 +1,5 @@
-#ifndef _BINARY_TREES_H_
-#define _BINARY_TREES_H_
+#ifndef BINARY_TREES_H
+#define BINARY_TREES_H
 
 #include <stddef.h>
 #include <stdio.h>
@@ -35,11 +35,12 @@ void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_delete(binary_tree_t *tree);
 void binary_tree_print(const binary_tree_t *);
 
-/*Binary Search Tree*/
+/*Binary Tree*/
 typedef struct binary_tree_s binary_tree_t;
 /*AVL Tree*/
 typedef struct binary_tree_s avl_t;
 /*Max Binary Heap*/
 typedef struct binary_tree_s heap_t;
-
+/*Binary search tree*/
+typedef struct binary_tree_s bst_t;
 #endif /* _BINARY_TREES_H_ */
