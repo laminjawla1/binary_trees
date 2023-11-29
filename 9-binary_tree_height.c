@@ -10,11 +10,29 @@
  */
 size_t max(size_t a, size_t b)
 {
-	return (a > b) ? a : b;
+	return ((a > b) ? a : b);
 }
 /**
- * binary_tree_height - Finds the height of a binary
- * tree
+ * find_binary_tree_height - Finds the height of the binary tree.
+ *
+ * @root: The root of the tree
+ *
+ * Return: The height of a tree
+ */
+size_t find_binary_tree_height(const binary_tree_t *root)
+{
+	size_t left_height, right_height;
+
+	if (!root)
+		return (0);
+	left_height = find_binary_tree_height(root->left);
+	right_height = find_binary_tree_height(root->right);
+
+	return (max(left_height, right_height) + 1);
+}
+/**
+ * binary_tree_height - Calls a helper function
+ * the height of a binary tree.
  *
  * @tree: The tree
  *
@@ -22,12 +40,5 @@ size_t max(size_t a, size_t b)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t left, right;
-
-	if (tree == NULL)
-		return (0);
-	left = binary_tree_height(tree->left);
-	right = binary_tree_height(tree->right);
-
-	return (max(left, right) + 1);
+	return (find_binary_tree_height(tree) - 1);
 }
