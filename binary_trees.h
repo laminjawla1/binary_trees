@@ -34,6 +34,18 @@ typedef struct binary_tree_s heap_t;
 /* Tree nodes printer */
 void binary_tree_print(const binary_tree_t *);
 
+/**
+ * queue - A structure for the tree nodes
+ *
+ * @node: The tree node
+ * @next: The next node
+ */
+typedef struct queue
+{
+        binary_tree_t *node;
+        struct queue *next;
+} queue;
+
 /* Function Prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -63,5 +75,6 @@ size_t binary_tree_leaves(const binary_tree_t *tree);
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 void binary_tree_delete(binary_tree_t *tree);
 #endif
